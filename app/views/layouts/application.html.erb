@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Place</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!-- header -->
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="http://preview.ait-themes.com/businessfinder/wp1/wp-content/themes/businessfinder/design/img/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right menu-header">
+            <li><a class="has-menu" href="#">Homepage <i class="fa fa-chevron-down" aria-hidden="true"></i></a></li>
+            <li><a class="menu-header-link" href="#">Blog</a></li>
+            <li>
+              <a  class="menu-header-link has-submenu" href="#">Theme Features <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+              <ul class="sub-menu">
+                <li><a href="#">Directory Directions Plugin</a></li>
+                <li><a href="#">Directory &amp; Business Finder Extension Plugin</a></li>
+                <li><a href="#">Advertising Spaces</a></li>
+                <li><a href="#">Content Section Layout</a></li>
+                <li><a href="#">Easy Admin</a></li>
+                <li><a href="#">Premium Admin Panel</a></li>
+                <li><a href="#">Text Styles &amp; Classes</a></li>
+                </li>
+              </ul>
+            </li>
+            <li><a class="menu-header-link" href="#">Contact Us</a></li>
+            <li><a class="menu-header-link"href="#">Buy Theme</a></li>
+            <li><a class="menu-header-link" href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!-- header -->
+<%= yield %>
+<!-- footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <p class="footer-copyright"><strong><i class="fa fa-copyright" aria-hidden="true"></i> 2012 Copyright by AIT.</strong> All rights reserved. Lorem ipsum dolor sit amet consecteur...</p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <ul class="footer-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Theme Features</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- footer -->
+  <%= javascript_include_tag 'masonry.min'%>
+</body>
+</html>

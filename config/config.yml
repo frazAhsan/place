@@ -1,0 +1,5 @@
+development:
+  api_key: 'AIzaSyB8rki_Pz-nHKA6NMFvTECxz2YZLjL_QrA'
+
+production:
+  api_key: 'AIzaSyB8rki_Pz-nHKA6NMFvTECxz2YZLjL_QrA'

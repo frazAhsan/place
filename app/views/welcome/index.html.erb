@@ -1,0 +1,37 @@
+<!-- /.recentPlaces-section -->
+<section class="blue-section recentPlaces-section">
+  <div class="container">
+    <h3 class="section-title">Places Available</h3>
+    <div class="recentPlaces-wrap">
+      <div class="row">
+        <div class="col-md-12">
+          <ul>
+            <% @domains.each do |domain| %>
+              <li>
+                <div class="item-content">
+                  <div class="item-thumbnail">
+                    <a href="#">
+                      <img src="http://preview.ait-themes.com/businessfinder/wp1/wp-content/uploads//bigstock-interior-of-a-restaurant-17447009-580f2baa2eceff56fb884c43a6186832.jpg" alt="Item thumbnail">
+                    </a>
+                  </div>
+                  <div class="item-description">
+                    <h3>
+                      <a href="/<%= domain.state %>/<%= domain.city %>/<%= domain.id %>"><%= domain.domain %></a>
+                    </h3>
+                    <p>Fanny pack odio lomo fixie irony, adipisicing try-hard ethical placeat viral laborum neutra raw denim veniam. Mumblecore ennui messenger bag, aute velit reprehenderit ea.</p>
+                    <p>214 Greene Avenue, Brooklyn, NY, United States <a href="#" class="meta-inform">www.aitthemes.com</a></p>
+                    <a href="#" class="meta-inform">businessfinder@email.com</a>
+                  </div>
+                </div>
+                <div class="item-rating">
+                  <span>No rating yet.</span>
+                </div>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /.recentPlaces-section -->

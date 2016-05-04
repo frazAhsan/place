@@ -1,0 +1,49 @@
+<!-- /.bestPlaces-section -->
+<section class="blue-section bestPlaces-section">
+  <div class="container">
+    <h3 class="section-title">Places Available</h3>
+    <div class="bestPlaces-wrap">
+      <div id="grid" data-columns>
+        <% @places.each do |place| %>
+          <div class="bestplace-content">
+            <div class="item-thumbnail">
+              <a href="#">
+                <%if place["photos"].present?%>
+                  <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=<%= place["photos"][0]["width"] %>&photoreference=<%= place["photos"][0]["photo_reference"] %>&key=<%= ENV["API_KEY"] %>" alt="Item thumbnail">
+                <%else%>
+                  <img src="http://preview.ait-themes.com/businessfinder/wp1/wp-content/uploads//bigstock-Cashier-In-Baker-s-Shop-Posing-48278945-334afa536a5e12c7e93ef86d78b062c5.jpg" alt="Item thumbnail">
+                <%end%>
+              </a>
+            </div>
+            <div class="item-detail-top">
+              <h5 class="item-title">
+                <%if place["photos"].present? && place["photos"][0]["html_attributions"].present?%>
+                  <%= place["photos"][0]["html_attributions"].first.html_safe %>
+                <%else%>
+                  <a href="#"><%= place["name"] %></a>
+                <%end%>
+              </h5>
+              <div class="item-address">
+                <span class="item-location"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                <%= place["vicinity"] %>
+              </div>
+            </div>
+            <div class="item-rating">
+              <span class="star active"><i class="fa fa-star" aria-hidden="true"></i></span>
+              <span class="star active"><i class="fa fa-star" aria-hidden="true"></i></span>
+              <span class="star active"><i class="fa fa-star" aria-hidden="true"></i></span>
+              <span class="star active"><i class="fa fa-star" aria-hidden="true"></i></span>
+              <span class="star active last"><i class="fa fa-star" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        <% end %>  
+      </div>
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+  .bestPlaces-section .bestplace-content{
+    margin-bottom: 10px;
+  }
+</style>
