@@ -32,7 +32,10 @@
               <%= place["rating"].present? ? "#{place["rating"]}/5" : "No Ratings avalable" %>
             </div>
           </div>
-        <% end %>  
+        <% end %>
+        <%if @places.count < 1%>
+          <h1 class="text-center">No places found</h1>
+        <%end %>  
       </div>
     </div>
   </div>

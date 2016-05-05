@@ -4,16 +4,26 @@ class SpotsController < ApplicationController
     if !$redis.get("#{@domain.latitude},#{@domain.longitude}").present? 
       keywords = []
       keywords = @domain.keywords.split(",") if @domain.keywords.present?
+      array = []
+      base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{@domain.latitude},#{@domain.longitude}&key=#{ENV['API_KEY']}"
       keywords.each_with_index do |keyword, index|
-        array = keywords[0..index]
-        @client = GooglePlaces::Client.new(ENV['API_KEY'])
-        @places = @client.spots(@domain.latitude, @domain.longitude, :keywords => array)
+        array = keywords[0..index].compact.join("+").gsub(" ","_")
+        @places = HTTParty.get(base_url+"&keyword=#{array}&radius=25")
+        @places = @places["results"]
         if @places.count > 10
           break
         end
       end
       if @places.count < 10
-        @places = @client.spots(@domain.latitude, @domain.longitude, :keywords => keywords, :radius => 100)
+        12.times do |index|
+          index+=1
+          radius = 100*index
+          @places = HTTParty.get(base_url+"&keyword=#{array}&radius=#{radius}")
+          @places = @places["results"]
+          if @places.count > 10
+            break
+          end
+        end
       end
       $redis.set("#{@domain.latitude},#{@domain.longitude}", @places.to_json)
     else
