@@ -18,9 +18,13 @@
                     <h3>
                       <a href="/<%= domain.state.downcase.gsub(" ", "-") %>/<%= domain.city.downcase.gsub(" ", "-") %>/<%= domain.id %>"><%= domain.domain %></a>
                     </h3>
-                    <p>Fanny pack odio lomo fixie irony, adipisicing try-hard ethical placeat viral laborum neutra raw denim veniam. Mumblecore ennui messenger bag, aute velit reprehenderit ea.</p>
-                    <p>214 Greene Avenue, Brooklyn, NY, United States <a href="#" class="meta-inform">www.aitthemes.com</a></p>
-                    <a href="#" class="meta-inform">businessfinder@email.com</a>
+                    <p>
+                      Keywords:
+                        </br>
+                        <% domain.keywords.split(",").each do |keyword| %>
+                          <%= keyword %></br>
+                        <% end %>
+                    </p>
                   </div>
                 </div>
                 <div class="item-rating">
