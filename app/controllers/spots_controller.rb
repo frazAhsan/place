@@ -30,4 +30,8 @@ class SpotsController < ApplicationController
       @places = JSON.parse($redis.get("#{@domain.latitude},#{@domain.longitude}"))
     end
   end
+
+  def details
+    @place = HTTParty.get("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{params[:id]}&key=#{ENV['API_KEY']}")["result"]
+  end
 end
