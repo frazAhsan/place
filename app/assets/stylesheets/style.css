@@ -637,8 +637,8 @@ footer .footer-menu li:first-child a{
 }
 #map-scroll::-webkit-scrollbar-thumb{
   background-color: #0ae;
-  color-stop(.5, rgba(255, 255, 255, .2)),
-  color-stop(.5, transparent), to(transparent);
+/*  color-stop(.5, rgba(255, 255, 255, .2)),
+  color-stop(.5, transparent), to(transparent);*/
 }
 
 
