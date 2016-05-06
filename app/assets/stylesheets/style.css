@@ -291,7 +291,7 @@ header .navbar-collapse{
 	float: left;
 	width: 100%;
 	margin-bottom: 20px;
-	webkit-transition-duration: .3s;
+	-webkit-transition-duration: .3s;
 	-moz-transition-duration: .3s;
 	-o-transition-duration: .3s;
 	transition-duration: .3s;
@@ -314,7 +314,7 @@ header .navbar-collapse{
 	margin-bottom: 9px;
 	background-color: #fff;
 	min-height: 169px;
-		webkit-transition-duration: .3s;
+	-webkit-transition-duration: .3s;
 	-moz-transition-duration: .3s;
 	-o-transition-duration: .3s;
 	transition-duration: .3s;
@@ -637,8 +637,8 @@ footer .footer-menu li:first-child a{
 }
 #map-scroll::-webkit-scrollbar-thumb{
   background-color: #0ae;
-  color-stop(.5, rgba(255, 255, 255, .2)),
-  color-stop(.5, transparent), to(transparent));
+  color-stop(.5, rgba(255, 255, 255, .2));
+  color-stop(.5, transparent), to(transparent);
 }
 
 
