@@ -3,7 +3,7 @@ class Spot < ActiveRecord::Base
   after_create :set_slug
 
   def set_slug
-    self.slug = self.name.downcase.gsub(/[!@%&,.-'"]/,'').gsub(" ","-")+"-#{self.id}"
+    self.slug = self.name.downcase.gsub(/[!@%&,.'"-]/,'').gsub(" ","-")+"-#{self.id}"
     self.save
   end
 end

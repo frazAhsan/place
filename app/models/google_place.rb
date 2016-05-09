@@ -4,7 +4,7 @@ class GooglePlace < ActiveRecord::Base
   has_one :spot
 
   def set_slug
-    self.slug = self.name.downcase.gsub(/[!@%&,.-'"]/,'').gsub(" ","-")+"-#{self.id}"
+    self.slug = self.name.downcase.gsub(/[!@%&,.'"-]/,'').gsub(" ","-")+"-#{self.id}"
     self.save
   end
 end
