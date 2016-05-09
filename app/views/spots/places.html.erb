@@ -4,10 +4,11 @@
     <h3 class="section-title">Places Available</h3>
     <div class="bestPlaces-wrap">
       <div id="grid" data-columns>
-        <% @places.each do |place| %>
+        <% @places.each do |p| %>
           <div class="bestplace-content">
             <div class="item-thumbnail">
               <a href="#">
+                <%place = JSON.parse(p.detail)%>
                 <%if place["photos"].present?%>
                   <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=<%= place["photos"][0]["width"] %>&photoreference=<%= place["photos"][0]["photo_reference"] %>&key=<%= ENV["API_KEY"] %>" alt="Item thumbnail">
                 <%else%>
@@ -17,7 +18,7 @@
             </div>
             <div class="item-detail-top">
               <h5 class="item-title">
-                <a href="/<%= place['place_id'] %>"><%= place["name"] %></a>
+                <a href="/<%= p.slug %>"><%= place["name"] %></a>
               </h5>
               <div class="item-address">
                 <span class="item-location"><i class="fa fa-map-marker" aria-hidden="true"></i></span>

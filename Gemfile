@@ -29,6 +29,8 @@ gem 'google_places'
 gem 'geocoder'
 gem 'redis', '~>3.2'
 gem 'non-stupid-digest-assets', '~> 1.0.4', group: :production
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

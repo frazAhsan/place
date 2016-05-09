@@ -347,6 +347,9 @@ header .navbar-collapse{
 	margin: 0px 0px 5px 0px;
 	font-weight: 700;
 }
+.matched{
+	font-weight: 700;	
+}
 .recentPlaces-section .item-description h3 a{
 	color: #35cbc9;
 }

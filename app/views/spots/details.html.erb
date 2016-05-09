@@ -4,6 +4,7 @@
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="map-left" id="map-scroll">
           <div class="sideMenu-img">
+            <% @place = JSON.parse(@place.detail) %>
             <%if @place["photos"].present?%>
               <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=<%= @place["photos"][0]["width"] %>&photoreference=<%= @place["photos"][0]["photo_reference"] %>&key=<%= ENV["API_KEY"] %>" alt="Item thumbnail">
             <%else%>
@@ -21,22 +22,25 @@
               </li>
               <li>
                 <span class="add-img"><i class="fa fa-globe" aria-hidden="true"></i></span>
-                <span class="add-detail"><a href="#"><%= @place["website"] %></a></span>
+                <span class="add-detail"><a href="<%= @place["website"] %>"><%= @place["website"] %></a></span>
               </li>
               <li>
                 <span class="add-img"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                <span class="add-detail"><a href="#"><%= @place["formatted_phone_number"] %></a></span>
+                <span class="add-detail"><a href="tel:<%= @place["formatted_phone_number"] %>"><%= @place["formatted_phone_number"] %></a></span>
               </li>
               <li>
                 <span class="add-img"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
                 <span class="add-detail">
                   <table>
-                    <thead>
-                    </thead>
                     <tbody>
                       <% if @place["opening_hours"].present? %>
-                        <%@place["opening_hours"]["weekday_text"].each do |day|%>
-                          <tr>
+                        <%@place["opening_hours"]["weekday_text"].each_with_index do |day, index|%>
+                          <%
+                            time = Time.now
+                            number = time.wday
+                            matched = number == 0 ? 6 : number-1
+                          %>
+                          <tr class="<%= index == matched ? 'matched' : '' %>">
                             <td><%= day.split(": ")[0]%></td>
                             <td><%= day.split(": ")[1]%></td>
                           </tr>
