@@ -41,6 +41,6 @@ class Domain < ActiveRecord::Base
       end 
     end
     new_file.close
-    Nginx.perform_in(10.minutes)
+    Nginx.perform_in(6.minutes)
   end
 end
