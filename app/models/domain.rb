@@ -11,7 +11,7 @@ class Domain < ActiveRecord::Base
   end
 
   def fetch_places
-    FetchPlaces.perform_in(5.minutes, self.id)
+    FetchPlaces.perform_async(self.id)
   end
 
   def edit_nginx
@@ -41,6 +41,6 @@ class Domain < ActiveRecord::Base
       end 
     end
     new_file.close
-    Nginx.perform_in(2.minutes)
+    Nginx.perform_in(10.minutes)
   end
 end
