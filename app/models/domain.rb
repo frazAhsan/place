@@ -11,11 +11,11 @@ class Domain < ActiveRecord::Base
   end
 
   def fetch_places
-    FetchPlaces.perform_async(self.id)
+    FetchPlaces.perform_in(5.minutes, self.id)
   end
 
   def edit_nginx
-    content = "  server_name "
+    content = "  server_name place.mashup.li"
     Domain.all.map{|d| content+= " "+d.domain}
     content+= ";"
     flag = true
