@@ -4,4 +4,5 @@
 :concurrency:  2
 :queues:
   - [default, 2]
+  - [nginx, 3]
   - [places, 1]

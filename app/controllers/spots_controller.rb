@@ -1,7 +1,11 @@
 class SpotsController < ApplicationController
   def places
-    @domain = Domain.find(params[:id])
-    @places = @domain.google_places
+    domain = Domain.where(domain: request.domain)
+    if domain.present?
+      @places = domain.google_places
+    else
+      @places = []
+    end  
     # if $redis.get("#{@domain.latitude},#{@domain.longitude}").present? && !JSON.parse($redis.get("#{@domain.latitude},#{@domain.longitude}")).present?
     #   keywords = []
     #   keywords = @domain.keywords.split(",") if @domain.keywords.present?
