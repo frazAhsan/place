@@ -20,7 +20,7 @@ class Domain < ActiveRecord::Base
     content+= ";"
     flag = true
     out_file = File.open("#{Rails.root}/temp.conf", "w+") 
-    File.open("/www/conf/nginx/sites-available/place.conf", "r") do |f|
+    File.open("/www/conf/sites-available/place.conf", "r") do |f|
       f.each_line do |line|  
         if line.include?("server_name")
           flag = false
@@ -34,7 +34,7 @@ class Domain < ActiveRecord::Base
     end
     out_file.close
 
-    new_file = File.open("/www/conf/nginx/sites-available/place.conf", "w+") 
+    new_file = File.open("/www/conf/sites-available/place.conf", "w+") 
     File.open("#{Rails.root}/temp.conf", "r") do |f|
       f.each_line do |line|  
         new_file.puts line
