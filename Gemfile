@@ -31,6 +31,8 @@ gem 'redis', '~>3.2'
 gem 'non-stupid-digest-assets', '~> 1.0.4', group: :production
 gem 'sidekiq'
 gem 'sinatra', :require => nil
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
