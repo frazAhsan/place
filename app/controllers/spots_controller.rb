@@ -39,5 +39,6 @@ class SpotsController < ApplicationController
   def details
     # @place = HTTParty.get("https://maps.googleapis.com/maps/api/place/details/json?placeid=#{params[:id]}&key=#{ENV['API_KEY']}")["result"]
     @place = Spot.find_by_slug(params[:id])
+    # @place = Spot.search({slug: params[:id]}).results.map(&:_source).first
   end
 end

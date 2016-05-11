@@ -4,7 +4,7 @@ class Domain < ActiveRecord::Base
   after_validation :geocode
   has_many :google_places
   
-  after_create :edit_nginx, :fetch_places
+  after_create :fetch_places#, :edit_nginx
 
   def address
     [city, state].compact.join(', ')

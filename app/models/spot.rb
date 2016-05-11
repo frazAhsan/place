@@ -13,10 +13,12 @@ class Spot < ActiveRecord::Base
   include Elasticsearch::Model::Indexing
   settings index: { number_of_shards: 1 } do
     mappings dynamic: 'false' do
+      indexes :google_place_id,  type: 'integer'
       indexes :place_id,  type: 'string', :index => :not_analyzed
       indexes :city,      type: 'string', :index => :not_analyzed
       indexes :state,     type: 'string', :index => :not_analyzed
       indexes :name,     type: 'string', :index => :not_analyzed
+      indexes :slug,     type: 'string', :index => :not_analyzed
     end
   end
 
@@ -53,6 +55,10 @@ class Spot < ActiveRecord::Base
 
     if query[:google_place_id].present?
       search_definition[:query][:bool][:must] << {term: {google_place_id: query[:google_place_id]}}
+    end
+
+    if query[:slug].present?
+      search_definition[:query][:bool][:must] << {term: {slug: query[:slug]}}
     end
 
     __elasticsearch__.search(search_definition)
