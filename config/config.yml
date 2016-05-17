@@ -1,5 +1,9 @@
 development:
   api_key: 'AIzaSyB8rki_Pz-nHKA6NMFvTECxz2YZLjL_QrA'
-
+  conf_path: '/www/conf/sites-available/place.conf'
+  parent_domain: 'place.mashup.li'
+  
 production:
   api_key: 'AIzaSyBoO9nvg8PS234L9fX6xDrggBOEs96kjQQ'
+  conf_path: '/www/conf/sites-available/place.conf'
+  parent_domain: 'place.mashup.li'
